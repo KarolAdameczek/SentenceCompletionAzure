@@ -1,3 +1,5 @@
+Still work in progress
+
 Infrastruktura:
 * Azure Machine Learning z Designerem, wykorzystanie Web Service jako wejście i wyjście
 * App Services - Web App
