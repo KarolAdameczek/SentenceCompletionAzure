@@ -1,16 +1,22 @@
 # EY - Text Generation
 
-**Zespół:**
+## **Członkowie zespołu:**
 
-1. Karol Adameczek 299231
+1. Karol Adameczek 299231 
 2. Dawid Rawski 299287
 3. Robert Martyka 299268
 
 
 
-**Zadanie:**
+## **Opis projektu:**
 
-Zbudowanie aplikacji uzupełniającej zdania w języku polskim rozpoczęte przez użytkownika - generator tekstu.
+Celem projektu jest stworzenie aplikacji uzupełniającej wprowadzone przez użytkownika rozpoczęcie zdania w języku polskim. Tekst będzie generowany przez model uczenia maszynowego, którego wiedza będzie bazować na korpusie dyskursu parlamentarnego. Drugim celem projektu jest przygotowanie propozycji na temat przygotowania i pre-procesowania danych, które mogą pozwolić na uzyskanie lepszych wyników.
+
+
+
+**Treść zadania**
+
+Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/projects/EY.pdf
 
 
 
@@ -20,24 +26,20 @@ Zbudowanie aplikacji uzupełniającej zdania w języku polskim rozpoczęte przez
 
 
 
-**Stos technologiczny:**
+## Zasada działania
 
-* Python3 
-  * Flask
-* javascript
-* HTML/CSS
-* Designer w Azure Machine Learning
+### **Schemat**
+
+![](schemat.png)
 
 
-
-## Funkcjonalność
 
 1. Użytkownik ładuje stworzoną stronę internetową w przeglądarce,
 2. W pole tekstowe wprowadza początek określonego zdania,
-   - strona internetowa za pomocą skryptu javascript wysyła zapytanie o dokończenie aktualnej treści zdania,
-   - na podstawie przesłanej treści wytrenowany model generuje drugą część zdania,
-   - wygenerowana treść jest odsyłana jako odpowiedź na poprzednie zapytanie,
-   - model doucza się na podstawie początku zdania podanego przez użytkownika.
+   1. strona internetowa za pomocą skryptu wysyła zapytanie o dokończenie aktualnej treści zdania,
+   2. na podstawie przesłanej treści wytrenowany model generuje propozycje kolejnych słów i dla najlepszej opcji generuje całe zdanie do końca,
+   3. wygenerowana treść jest odsyłana jako odpowiedź na poprzednie zapytanie,
+   4. model doucza się na podstawie początku zdania podanego przez użytkownika.
 
 
 
@@ -45,10 +47,39 @@ Zbudowanie aplikacji uzupełniającej zdania w języku polskim rozpoczęte przez
 
 ![](diagram.png)
 
-* Azure Machine Learning z Designerem, wykorzystanie bloków Web Input oraz Web Output
-* App Services - Web App do hostowania strony internetowej
-* Azure Storage Accouts - dane do machine learningu
-* Azure Functions - preprocesowanie danych do uczenia
+* Azure Machine Learning z Designerem, wykorzystanie bloków Web Input oraz Web Output,
+* App Services - Web App do hostowania strony internetowej i obsługi zapytań,
+* Azure Storage Accounts - dane do machine learningu,
+* Azure Functions - preprocesowanie danych do uczenia.
+
+
+
+## **Stos technologiczny:**
+
+* Python3 
+  * Flask
+* Javascript
+* HTML/CSS
+* Designer w Azure Machine Learning
+
+
+
+## Wymagania
+
+### Wymagania funkcjonalne
+
+* Aplikacja uzupełnia zdania w czasie rzeczywistym (brak przeładowania strony).
+* Aplikacja podaje użytkownikowi więcej niż jedną propozycję następnego słowa.
+* Aplikacja tworzy zdania oznajmujące, pytające i rozkazujące.
+* Do uczenia modelu wykorzystany jest korpus dyskursu parlamentarnego.
+
+### Wymagania niefunkcjonalne
+
+* Wyuczenie modelu uczenia maszynowego do automatycznego uzupełniania zdań.
+* Stworzenie aplikacji sieciowej wykorzystującej model.
+* Stworzenie dziennika/sprawozdania, w którym zawarte będą informacje na temat wykorzystywanych modeli i ich użyteczności
+
+
 
 ## Harmonogram
 
