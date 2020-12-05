@@ -30,7 +30,7 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
 
 ### **Schemat**
 
-![](schemat.png)
+![](scheme.png)
 
 
 
