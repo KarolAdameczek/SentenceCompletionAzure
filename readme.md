@@ -61,7 +61,7 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
 * Javascript
 * HTML/CSS
 * Notebooki w Azure Machine Learning
-* TensorFlow
+* TensorFlow + Keras
 
 
 
