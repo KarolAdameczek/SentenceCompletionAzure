@@ -39,7 +39,6 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
    1. strona internetowa za pomocą skryptu wysyła zapytanie o dokończenie aktualnej treści zdania,
    2. na podstawie przesłanej treści wytrenowany model generuje propozycje kolejnych słów i dla najlepszej opcji generuje całe zdanie do końca,
    3. wygenerowana treść jest odsyłana jako odpowiedź na poprzednie zapytanie,
-   4. model doucza się na podstawie początku zdania podanego przez użytkownika.
 
 
 
@@ -47,12 +46,13 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
 
 ![](diagram.png)
 
-* Azure Machine Learning z Designerem, wykorzystanie bloków Web Input oraz Web Output,
+* Azure Machine Learning - wykorzystanie Notebooków do wyuczenia modelu,
+
 * App Services - Web App do hostowania strony internetowej i obsługi zapytań,
+
 * Azure Storage Accounts - dane do machine learningu,
-* Azure Functions - preprocesowanie danych do uczenia.
 
-
+  
 
 ## **Stos technologiczny:**
 
@@ -86,7 +86,7 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
 | Lp.  | Data       | Opis                                                         |
 | ---- | ---------- | ------------------------------------------------------------ |
 | 1.   | 03.12.2020 | Stworzenie opisu projektu, zebranie wymagań                  |
-| 2.   | 10.12.2020 | Rozkompresowane i wczytane dane z korpusu do Azure Blob Storage, funkcja preprocesująca dane (check-point) |
+| 2.   | 10.12.2020 | Rozkompresowanie danych z korpusu, preprocesowanie i wczytane dane do Azure Blob Storage (check-point) |
 | 3.   | 17.12.2020 | Wykonana analiza zbioru danych, pierwsza iteracja tworzenia aplikacji uczącej model |
 | 4.   | 07.01.2021 | Druga iteracja aplikacji                                     |
 | 5.   | 14.01.2021 | Aplikacja webowa ładująca poprawnie interfejs użytkownika (check-point) |
