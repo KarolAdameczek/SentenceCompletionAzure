@@ -60,7 +60,8 @@ Strona 5. https://github.com/ekote/AI-on-Microsoft-Azure/blob/main/intro-inz/pro
   * Flask
 * Javascript
 * HTML/CSS
-* Designer w Azure Machine Learning
+* Notebooki w Azure Machine Learning
+* TensorFlow
 
 
 
