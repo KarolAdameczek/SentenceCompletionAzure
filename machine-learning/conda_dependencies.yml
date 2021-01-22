@@ -1,0 +1,12 @@
+
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - h5py<=2.10.0
+  - azureml-defaults
+  - tensorflow-gpu
+  - keras
+  - tensorflow
+  - matplotlib
