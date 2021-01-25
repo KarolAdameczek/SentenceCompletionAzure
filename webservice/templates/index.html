@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/main.css">
 
     <title>Sentence Completion</title>
@@ -20,14 +19,25 @@
         </div>
     </nav>
     <main>
-        <form>
-            <input type="text" class="form-control font-weight-bold mt-5 w-75 mx-auto" placeholder="Zacznij pisać zdanie" id="text-input">
+        <form class="mt-5 w-75 mx-auto">
+            <span>Liczba generowanych zdań 1-20:</span>
+            <input type="number" class="form-control" value="5" id="num" step="1">
+            <span>Model:</span>
+            <select class="form-control form-select mx-auto" id="models">
+                {% for model in models %}
+                <option value="{{model}}">{{models[model]["text"]}}</item>
+                {% endfor %}
+            </select>
+            <input type="text" class="form-control font-weight-bold mt-5" placeholder="Zacznij pisać zdanie (generowanie zdań po wpisaniu spacji)" id="text-input">
         </form>
         <div id="sentence-containter" class="pb-1 w-75 mx-auto" display="none">
             <table class="table table-bordered table-hover">
                 <tbody id="sentence-table-body">
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center mt-3" >
+                <div class="spinner-border" hidden id="spinner"></div>
+            </div>
         </div>
     </main>
     <footer class="footer text-center text-lg-start" style="background-color: rgba(0, 0, 0, 0.1)">
@@ -42,9 +52,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="static/main.js"></script>
 </body>
 

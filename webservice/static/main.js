@@ -1,13 +1,27 @@
 input               = document.getElementById("text-input")
 sentence_container  = document.getElementById("sentence-containter")
 sentence_table_body = document.getElementById("sentence-table-body")
+spinner             = document.getElementById("spinner")
+num                 = document.getElementById("num")
+models              = document.getElementById("models")
+
+numoldvalue = num.value
 
 var sentences = []
+
+num.oninput = onNumChange
+
+function onNumChange(e){
+    if(num.value > 20 || num.value < 1)
+        if(num.value !== "")
+            num.value = numoldvalue
+   numoldvalue = num.value
+}
 
 input.oninput = onInputChange
 
 function onInputChange(e){
-    if (input.value) {
+    if (input.value.length > 1 && input.value[input.value.length - 1] == " " && input.value[input.value.length - 2] != " ") {
         if(sentences.length == 0){
             getSentences(input.value)
             return
@@ -30,15 +44,23 @@ function getSentences(text){
     xhr.responseType = "json";
     xhr.onload = function() {
         if(xhr.status == 200){
+            spinner.setAttribute("hidden", "")
             sentences = xhr.response.sentences;
-
+            var newsentences = []
+            sentences.forEach(sen =>{
+                newsentences.push(unescape(sen));
+            })
+            sentences = newsentences;
             clearNode(sentence_table_body);
             populateTable(sentences);
         }
     };
     xhr.send(JSON.stringify({
-        "text" : text
+        "text" : text,
+        "num" : num.value,
+        "model" : models.value
     }));
+    spinner.removeAttribute("hidden")
 }
 
 function clearNode(node){
@@ -51,10 +73,10 @@ function populateTable(list){
     list.forEach(function(item){
         tr = document.createElement("tr")
         td = document.createElement("td")
-        td.innerText = item
+        td.innerHTML = item
         tr.appendChild(td)
         tr.onclick = (function(e){
-            input.value = e.target.innerText
+            input.value = e.target.innerText + " "
             onInputChange()
         })
         sentence_table_body.appendChild(tr)
