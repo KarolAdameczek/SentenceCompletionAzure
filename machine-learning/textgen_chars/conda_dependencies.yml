@@ -1,0 +1,11 @@
+
+channels:
+- conda-forge
+dependencies:
+- python=3.6.9
+- pip:
+  - h5py<=2.10.0
+  - azureml-defaults
+  - tensorflow-gpu
+  - tensorflow==2.3.1
+  - matplotlib
