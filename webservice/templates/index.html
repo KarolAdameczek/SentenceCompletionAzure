@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/main.css">
+
+    <title>Sentence Completion</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0.2)">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand mx-auto" href="/">
+                Sentence completion
+            </a>
+        </div>
+    </nav>
+    <main>
+        <form class="mt-5 w-75 mx-auto">
+            <span>Liczba generowanych zdań 1-20:</span>
+            <input type="number" class="form-control" value="5" id="num" step="1">
+            <span>Model:</span>
+            <select class="form-control form-select mx-auto" id="models">
+                {% for model in models %}
+                <option value="{{model}}">{{models[model]["text"]}}</item>
+                {% endfor %}
+            </select>
+            <input type="text" class="form-control font-weight-bold mt-5" placeholder="Zacznij pisać zdanie" id="text-input">
+            <button type="button" id="button" class="btn btn-primary mx-auto w-100 mt-3">Generuj</button>
+        </form>
+        <div id="sentence-containter" class="pb-1 w-75 mx-auto" display="none">
+            <table class="table table-bordered table-hover" style="border-width: 2px;">
+                <tbody id="sentence-table-body">
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center mt-3" >
+                <div class="spinner-border" hidden id="spinner"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer text-center text-lg-start" style="background-color: rgba(0, 0, 0, 0.1)">
+        <div class="container text-center text-muted">
+            <span>© 2021</span>
+            <a class="text-dark" href="https://github.com/KarolAdameczek/SentenceCompletionAzure">GitHub Repository</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="static/main.js"></script>
+</body>
+
+</html>
