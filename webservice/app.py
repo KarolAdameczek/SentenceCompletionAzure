@@ -10,9 +10,19 @@ NUM = 5
 
 MODELS = {
     1 : {
-        "text" : "Model tworzący zdania litera po literze",
+        "text" : "Model tworzący zdania znak po znaku oparty o jedną warstwę GRU(RNN), słaba skuteczność",
         "url" : getenv("MODEL1_URL"),
         "token" : getenv("MODEL1_TOKEN")
+    },
+    2 : {
+        "text" : "Model tworzący zdania znak po znaku oparty o dwie warstwy LSTM, średnia skuteczność",
+        "url" : getenv("MODEL2_URL"),
+        "token" : getenv("MODEL2_TOKEN")
+    },
+    3 : {
+        "text" : "Model tworzący zdania słowa po słowie oparty o jedną warstwę LSTM, ?",
+        "url" : getenv("MODEL3_URL"),
+        "token" : getenv("MODEL3_TOKEN")
     }
 }
 
@@ -26,13 +36,6 @@ def requestSentences(data, model):
     res = requests.post(model["url"], headers=headers, json=data)
     
     texts = res.json()["data"]
-    for j in range(len(texts)):
-        i = 0
-        while i < len(texts[j]):
-            if texts[j][i] in PUNCTUATION and texts[j][i - 1] == " ":
-                texts[j] = texts[j][:i - 1 ] + texts[j][i:]
-            else:
-                i += 1
     return texts
 
 @app.route("/")

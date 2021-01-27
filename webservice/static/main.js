@@ -4,6 +4,7 @@ sentence_table_body = document.getElementById("sentence-table-body")
 spinner             = document.getElementById("spinner")
 num                 = document.getElementById("num")
 models              = document.getElementById("models")
+button              = document.getElementById("button")
 
 numoldvalue = num.value
 
@@ -18,19 +19,13 @@ function onNumChange(e){
    numoldvalue = num.value
 }
 
-input.oninput = onInputChange
+$('#button').on('click', function(event) {
+    update()
+});
 
-function onInputChange(e){
-    if (input.value.length > 1 && input.value[input.value.length - 1] == " " && input.value[input.value.length - 2] != " ") {
-        if(sentences.length == 0){
-            getSentences(input.value)
-            return
-        }
-        if(!sentences.every(item => {
-            return item.startsWith(input.value)
-        })){
-            getSentences(input.value)
-        }
+function update(){
+    if (input.value.length > 1) {
+        getSentences(input.value)
     } else {
         clearNode(sentence_table_body)
         sentences = []
@@ -77,7 +72,7 @@ function populateTable(list){
         tr.appendChild(td)
         tr.onclick = (function(e){
             input.value = e.target.innerText + " "
-            onInputChange()
+            update()
         })
         sentence_table_body.appendChild(tr)
     })

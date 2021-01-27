@@ -28,10 +28,11 @@
                 <option value="{{model}}">{{models[model]["text"]}}</item>
                 {% endfor %}
             </select>
-            <input type="text" class="form-control font-weight-bold mt-5" placeholder="Zacznij pisać zdanie (generowanie zdań po wpisaniu spacji)" id="text-input">
+            <input type="text" class="form-control font-weight-bold mt-5" placeholder="Zacznij pisać zdanie" id="text-input">
+            <button type="button" id="button" class="btn btn-primary mx-auto w-100 mt-3">Generuj</button>
         </form>
         <div id="sentence-containter" class="pb-1 w-75 mx-auto" display="none">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover" style="border-width: 2px;">
                 <tbody id="sentence-table-body">
                 </tbody>
             </table>
